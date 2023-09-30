@@ -3,7 +3,7 @@ import Card, {card} from "./Card"
 function Column({ label, value, cards}: { label: string, value: number, cards?: card[]}) {
   return (
     <div>
-        <div className="flex justify-between p-6 items-center">
+        <div className="flex justify-between pt-4 items-center">
             <p className="text-xl text-white font-bold">{ label } ({value})</p>
             <img src='/btnAdd.png' />
         </div>

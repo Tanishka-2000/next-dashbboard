@@ -30,14 +30,14 @@ function getTxtColor(color: string){
 
 function Card({ title, descp, progress, members, dueDays, color}: card) {
   return (
-    <div className="bg-card p-8 rounded-2xl my-6">
+    <div className="bg-card p-6 rounded-2xl my-6">
         <p className="flex gap-x-4 items-center">
             <span className={`block w-3 h-3 rounded-full ${getBgColor(color)}`}></span>
             <span className={`text-base ${getTxtColor(color)} font-semibold`}>{ title }</span>
             <img className="ml-auto" src='/dots-horz.png'/>
         </p>
-
-        <p className="w-80 text-lg text-white my-4 font-sembold white-space-wrap">{descp}</p>
+       
+        <p className=" text-lg text-white my-4 font-sembold">{descp}</p>
 
         <div className="w-full h-2 bg-dark-grey rounded-lg">
             <div className={`h-2 ${getBgColor(color)} rounded-lg`} style={{width: progress + '%'}}></div>

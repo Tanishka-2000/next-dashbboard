@@ -1,22 +1,21 @@
 import Column from './Column'
 import Hero from './Hero'
-import Navbar from './Navbar'
+import Navbar from '@/components/Navbar'
+
 import { card } from './Card'
 
 
-function Main() {
+function Main({ open, setOpen} : { open: boolean, setOpen: (n:boolean) => void}) {
   return (
-    <div className='grow'>
-      <Navbar />
+    <div className={`${ open ? 'blur-sm lg:filter-none' : ''}`}>
+      <Navbar open={open} setOpen={setOpen}/>
       <Hero />
-      <div  className='grid grid-cols-4 gap-4 mx-4'>
+      <div  className='grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mx-4'>
         <Column label='To-Do List' value={24} cards={todos}/>
         <Column label='In Progress' value={2} cards={inProgress}/>
         <Column label='Done' value={3} cards={done}/>
         <Column label='Revised' value={0} cards={revised}/>
-
       </div>
-      Main
     </div>
   )
 }

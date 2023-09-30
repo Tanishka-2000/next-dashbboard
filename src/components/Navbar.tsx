@@ -1,17 +1,24 @@
 import React from 'react'
 import Badge from './Badge'
 
-function Navbar() {
+function Navbar({ open, setOpen} : { open: boolean, setOpen: (n:boolean) => void}) {
+    function openSidebar() {
+        setOpen(true)
+    }
   return (
-    <div className='bg-layer py-5 px-16 flex justify-between items-center'>
-        <div className='flex bg-card py-4 px-8 gap-x-4 w-1/3 rounded-full'>
+    <div className='bg-layer p-2 lg:px-8 lg:py-5 flex justify-between gap-x-8 items-center flex-wrap gap-y-2'>
+        <button className='bg-transparent border-none outline-none' onClick={openSidebar}>
+            <img className={`${open ? 'hidden' : ''}`} src='menu.png' />
+        </button>
+
+        <div className='flex max-w-md grow bg-card py-3 px-4 gap-x-4 lg:w-1/3 rounded-full'>
             <img src='/search.png' />
-            <input className='bg-transparent' type='text' placeholder='Search here'/>
+            <input className='bg-transparent outline-none border-none' type='text' placeholder='Search here'/>
         </div>
         <div>
             <a className='uppercase underline text-purple' href="#">other menus</a>
         </div>
-        <div className='flex gap-x-8'>.
+        <div className='flex gap-x-8'>
             <Badge icon='bell' value={12} />
             <Badge icon='courses' value={5} />
             <Badge icon='checkbox' value={2} />
